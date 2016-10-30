@@ -1,0 +1,44 @@
+﻿<div class="col-md-12" ng-init="clicked = false">
+    <h1 ng-bind="title"></h1>
+</div>
+<div class="col-md-4">
+    <form ng-submit="addPost()">
+        <fieldset>
+            <legend>Create message</legend>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text"
+                       id="title"
+                       class="form-control"
+                       placeholder="Title..."
+                       ng-model="newPost.title" />
+            </div>
+
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea id="body"
+                          class="form-control"
+                          style="width: 100%; height: 200px;"
+                          placeholder="Body..."
+                          ng-model="newPost.body"></textarea>
+            </div>
+
+            <success-button ng-model="clicked"></success-button>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                </div>
+
+                <!--<button type="button"
+                class="btn btn-default"
+                ng-click="go('/Home/')savePost(post)">
+            <span class="glyphicon glyphicon"></span> Send message
+        </button>-->
+
+</fieldset>
+
+    </form>
+
+</div>

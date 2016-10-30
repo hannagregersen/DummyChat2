@@ -1,0 +1,37 @@
+﻿<div class="jumbotron text-center">
+    <h1>Messages</h1>
+    <p>Suw15</p>
+    <div class="col-md-12">
+        <button type="button"
+                class="btn btn-success"
+                ng-click="go('/Posts/New')">
+            <span class="glyphicon glyphicon-plus"></span> New message!
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Message</th>
+                    <th>Post Date</th>
+                </tr>
+                <tr ng-repeat="post in posts track by $index">
+                    <td class="col-md-1" ng-bind="post.title"></td>
+                    <td class="col-md-1" ng-bind="post.body"></td>
+                    <selected ng-model="selectedDates"><td class="col-md-1" ng-bind="post.postDate"></td></selected>
+                    <td class="col-md-1">
+                        <button type="button"
+                                class="btn btn-danger"
+                                ng-click="deletePost(post)">
+                            <span class="glyphicon glyphicon-remove"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div><br /> <br />

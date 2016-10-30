@@ -1,0 +1,16 @@
+﻿
+.glyphicon {
+
+    font-size: 16pt;
+
+}
+
+
+
+.glyphicon:hover {
+
+    cursor: pointer;
+
+    color: gray;
+
+}
