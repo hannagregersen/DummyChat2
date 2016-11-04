@@ -23,6 +23,7 @@ angular.module("mainModule")
             }
 
             $scope.getChannels = function () {
+                console.log("channels");
                 channelsApi.getChannels().then(function (data) {
                     if (data != null)
                         $scope.channels = data;

@@ -6,12 +6,12 @@ angular.module("mainModule")
         "$location",
         "$route",
         "$cookies",
-        "postsApi",
+        "messagesApi",
         "channelsApi",
-        function ($scope, $location, $route, $cookies, postsApi, channelsApi) {
+        function ($scope, $location, $route, $cookies, messagesApi, channelsApi) {
             $scope.$route = $route;
             $scope.$cookies = $cookies;
-            $scope.posts = [];
+            $scope.messages = [];
             $scope.channels = [];
             $scope.favoriteChannels = [];
    

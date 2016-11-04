@@ -1,15 +1,15 @@
 ﻿angular.module("mainModule")
-    .service("postsApi", [
+    .service("messagesApi", [
         "$http",
         "$q",
         function ($http, $q) {
             var api = "http://dummyapi.kodalagom.se/api";
-            var posts = api + "/posts";
+            var messagesApi = api + "/messages";
 
-            this.getPosts = function () {
+            this.getMessages = function () {
                 var deferred = $q.defer();
 
-                $http.get(posts)
+                $http.get(messagesApi)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     }, function (response) {
@@ -19,10 +19,10 @@
                 return deferred.promise;
             };
 
-            this.addPost = function (newPost) {
+            this.addMessage = function (newMessage) {
                 var deferred = $q.defer();
-
-                $http.post(posts, newPost)
+                console.log("add" + newMessage);
+                $http.post(messagesApi, newMessage)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     }, function (response) {
@@ -32,10 +32,10 @@
                 return deferred.promise;
             };
 
-            this.updatePost = function (updatedPost) {
+            this.updateMessage = function (updatedMessage) {
                 var deferred = $q.defer();
 
-                $http.put(posts + "/" + updatedPost.id, updatedPost)
+                $http.put(messages + "/" + updatedMessages.id, updatedMessage)
                     .then(function (response) {
                         deferred.resolve(response.data);
                     }, function (response) {
@@ -44,11 +44,11 @@
 
                 return deferred.promise;
             };
-            
-            this.deletePost = function (id) {
-                var deferred = $q.defer();
 
-                $http.delete(posts + "/" + id)
+            this.deleteMessage = function (id) {
+                var deferred = $q.defer();
+                console.log(id);
+                $http.delete(messagesApi + "/" + id)
                     .then(function (response) {
                         deferred.resolve();
                     }, function (response) {
@@ -57,5 +57,5 @@
 
                 return deferred.promise;
             };
-         }
+        }
     ]);

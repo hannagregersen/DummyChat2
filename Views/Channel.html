@@ -1,3 +1,34 @@
 ﻿<div class="col-md-12">
-    <h1 ng-bind="title"></h1>
+    <a href="/channels">Tillbaka till Channels</a>
+    <h1>{{currentChannel.name}}</h1>
+    <div ng-if="currentChannel.body.length > 0">
+        {{currentChannel.body}}
+    </div>
+    <div class="col-md-12">
+        <button type="button"
+                class="btn btn-success"
+                data-toggle="modal"
+                data-target="#newMessageModal">
+            Add message
+        </button>
+    </div>
+
+    <div class="col-md-12" ng-repeat="message in messages track by $index">
+        <div class="media" style="border-style:dotted">
+            <div class="media-left">
+                <img src="../Pictures/IMG_3487 [76048].JPG" class="media-object" style="width:60px" />
+            </div>
+            <div class="media-body">
+                <h4>Titel: {{message.title}} - {{message.postDate}}</h4><br />
+                <p>Body: {{message.body}}</p>
+                <p>Datum: {{message.postDate}}</p>
+                <button type="button"
+                        class="btn btn-danger btn-sm"
+                        ng-click="deleteMessage(message.id)">
+                    <span class="glyphicon glyphicon-trash"></span> Delete
+                </button><br /><br />
+            </div>
+        </div>
+    </div>
 </div>
+<div ng-include="'Views/Partials/NewMessageModal.html'"></div>

@@ -1,0 +1,44 @@
+﻿<div id="newMessageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form ng-submit="addMessage()">
+                    <fieldset>
+                        <h2>Create message</h2>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Title..."
+                                   ng-model="newMessage.title" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Author</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Author..."
+                                   ng-model="newMessage.author" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="body">Body</label>
+                            <textarea id="body"
+                                      class="form-control"
+                                      style="width: 100%; height: 200px;"
+                                      placeholder="Channel Body..."
+                                      ng-model="newMessage.body"></textarea>
+                        </div>
+                       
+                        <!--<success-button ng-model="clicked"></success-button>-->
+
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">
+                        Add message
+                    </button>
+
+                </form>
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,35 +1,48 @@
 ﻿<div class="jumbotron text-center">
-    <h1>Admin</h1>
-    <p>Create you own channels</p>
-</div>
-<div class="col-md-12">
+    <h1>Channels</h1>
+    <p>Create your own channels</p>
     <div class="col-md-12">
-        <button type="button"
-                class="btn btn-success"
-                data-toggle="modal"
-                data-target="#newChannelModal">
-            Add Channel
-        </button>
+        <div class="col-md-12">
+            <button type="button"
+                    class="btn btn-success"
+                    data-toggle="modal"
+                    data-target="#newChannelModal">
+                Add Channel
+            </button>
+        </div>
     </div>
-    <div class="row">
-        <h2>Favoriter</h2>
-        <div class="col-sm-4" ng-repeat="favorite in favoriteChannels track by $index">
+    </div>
 
+        <div class="container" style="border-style:double">
+    <h2>Favoriter</h2>
+
+    <div class="row">
+        <div class="col-md-4" ng-repeat="favorite in favoriteChannels track by $index">
             <span class="glyphicon glyphicon-star"></span>
             <p>{{favorite.name}}</p><br />
         </div>
     </div>
-    <div class="col-md-4"
-         ng-repeat="channel in channels track by $index">
-        <h1 ng-bind="channel.name"></h1>
-        <p ng-bind="channel.body"></p></br>
-        <span class="glyphicon glyphicon-trash"
-              ng-click="removeChannel(channel.id)">
-        </span>
-        <span class="glyphicon glyphicon-star"
-              ng-click="addFavorit(channel.id)">
-        </span>
-    </div>
 </div>
+
+    <div class="container">
+        <h2>Channels</h2><br />
+    </div>
+    <div class="col-md-6" ng-repeat="channel in channels track by $index">
+        <div class="media" style="border-style:groove">
+            <div class="media-list">
+                <img src="../Pictures/IMG_3129 [88006].JPG" class="media-object" style="width:80px"/> 
+            </div>
+            <div class="media-body">
+                <h><a href="/channels/{{channel.id}}">{{channel.name}}</a></h><br />
+                <p>{{channel.body}}</p>
+                <span class="glyphicon glyphicon-trash"
+                      ng-click="removeChannel(channel.id)">
+                </span>
+                <span class="glyphicon glyphicon-star"
+                      ng-click="addFavorit(channel.id)">
+                </span>
+            </div>
+        </div>
+    </div>
 
 <div ng-include="'Views/Partials/NewChannelModal.html'"></div>

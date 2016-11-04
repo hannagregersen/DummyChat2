@@ -6,15 +6,8 @@
             scope: {
                 clicked: "=ngModel"
             },
-            template: `
-                <button type="submit"
-                        ng-click="clicked = !clicked"
-                        class ="btn btn-success">
-                    <span class ="glyphicon glyphicon-check"
-                        ng-show="clicked"
-                        Success!
-                </button>
-                `
+            template: ''
+                
         }
     }
 ]);

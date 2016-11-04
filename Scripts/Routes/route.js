@@ -31,10 +31,9 @@ angular.module("mainModule")
                                                 activeTab: "Channels"
                                             })
 
-
-                                         .when("/Posts/New", {
-                                              templateUrl: "Views/Posts/NewPost.html",
-                                              controller: "NewPostController",
+                                         .when("/Messages/New", {
+                                              templateUrl: "Views/Messages/NewMessage.html",
+                                              controller: "NewMessageController",
                                               caseInsensitiveMatch: true,
                                               activeTab: "Home"
 
