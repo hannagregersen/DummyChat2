@@ -5,7 +5,8 @@ angular.module("mainModule")
         "$scope",
         "$cookies",
         "channelsApi",
-        function ($scope, $cookies,channelsApi) {
+        function ($scope, $cookies, channelsApi) {
+
             $scope.title = "Channels";
             $scope.newChannel = {};
 

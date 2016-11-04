@@ -8,16 +8,22 @@ angular.module("mainModule")
         "channelsApi",
         "messagesApi",
         function ($scope, $routeParams,$interval, channelsApi, messagesApi) {
-            setInterval
+            $scope.$on("$destroy", function () {
+                if (angular.isDefined($scope.stop)) {
+                    $interval.cancel($scope.stop);
+                }
+            });
             var channelId = $routeParams.id;
             $scope.currentChannel = {};
-     
+            $scope.stop;
+
             if (channelId != null && channelId.length > 0) {
                 channelsApi.getChannel(channelId).then(function (data) {
+                    $interval.cancel(stop);
                     if (data != null) {
                         $scope.currentChannel = data;
                         $scope.messages = data.messages;
-                        stop = $interval(function () {
+                        $scope.stop = $interval(function () {
                             if (channelId != null && channelId.length > 0) {
                                 channelsApi.getChannel(channelId).then(function (data) {
                                     if (data != null) {
@@ -30,8 +36,7 @@ angular.module("mainModule")
                     }
                 });
             }
-            var stop;
-
+ 
             $scope.newMessage = {};
 
             $scope.addMessage = function () {
