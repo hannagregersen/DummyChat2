@@ -13,15 +13,15 @@
         </button>
     </div>
 
-    <div class="col-md-12" ng-repeat="message in messages track by $index">
-        <div class="media" style="border-style:dotted">
+    <div class="col-md-8" ng-repeat="message in messages track by $index">
+        <div class="media" style="border: 2px solid #808080; padding:10px; margin:10px;">
             <div class="media-left">
                 <img src="../Pictures/IMG_3487 [76048].JPG" class="media-object" style="width:60px" />
             </div>
-            <div class="media-body">
+            <div class="media-body" style="padding-right:20px;">
                 <h4>Titel: {{message.title}} - {{message.postDate}}</h4><br />
                 <p>Body: {{message.body}}</p>
-                <p>Datum: {{message.postDate}}</p>
+                <p>Datum: {{message.timeSent | date: 'HH:mm dd-MM-yyyy'}}</p>
                 <button type="button"
                         class="btn btn-danger btn-sm"
                         ng-click="deleteMessage(message.id)">
